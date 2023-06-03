@@ -223,6 +223,7 @@ Makefile: ../../LukomskiGrzegorz_lab10/LukomskiGrzegorz_lab10.pro S:/qtcr/6.5.1/
 		S:/qtcr/6.5.1/mingw_64/lib/Qt6Core.prl \
 		S:/qtcr/6.5.1/mingw_64/lib/Qt6EntryPoint.prl \
 		S:/qtcr/6.5.1/mingw_64/mkspecs/features/build_pass.prf \
+		../../LukomskiGrzegorz_lab10/chomik.qrc \
 		release/qmake_qmake_qm_files.qrc \
 		debug/qmake_qmake_qm_files.qrc
 	$(QMAKE) -o Makefile ..\..\LukomskiGrzegorz_lab10\LukomskiGrzegorz_lab10.pro -spec win32-g++ "CONFIG+=qtquickcompiler"
@@ -379,6 +380,7 @@ S:/qtcr/6.5.1/mingw_64/lib/Qt6Gui.prl:
 S:/qtcr/6.5.1/mingw_64/lib/Qt6Core.prl:
 S:/qtcr/6.5.1/mingw_64/lib/Qt6EntryPoint.prl:
 S:/qtcr/6.5.1/mingw_64/mkspecs/features/build_pass.prf:
+../../LukomskiGrzegorz_lab10/chomik.qrc:
 release/qmake_qmake_qm_files.qrc:
 debug/qmake_qmake_qm_files.qrc:
 qmake: FORCE

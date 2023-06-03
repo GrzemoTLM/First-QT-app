@@ -22,6 +22,7 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QScrollBar>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
@@ -33,6 +34,14 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionPoka;
+    QAction *actionUkryj;
+    QAction *actionKopiuj;
+    QAction *actionWklej;
+    QAction *actionWytnij;
+    QAction *actionK1;
+    QAction *actionK2;
+    QAction *actionKapi;
     QWidget *centralwidget;
     QLineEdit *liczbaA;
     QComboBox *Dzialania;
@@ -65,8 +74,16 @@ public:
     QPushButton *NoteSaveButton;
     QPushButton *NoteReadButton;
     QPushButton *NoteClearButton;
+    QLabel *label_6;
+    QRadioButton *RedRadio;
+    QRadioButton *GreenRadio;
+    QRadioButton *GreyRadio;
+    QRadioButton *ClassicRadioButton;
+    QLabel *hamster;
     QMenuBar *menubar;
     QMenu *menuKalkulator;
+    QMenu *menuNotes;
+    QMenu *menuKomunikat;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -74,6 +91,24 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(974, 593);
+        actionPoka = new QAction(MainWindow);
+        actionPoka->setObjectName("actionPoka");
+        QIcon icon(QIcon::fromTheme(QString::fromUtf8("computer")));
+        actionPoka->setIcon(icon);
+        actionUkryj = new QAction(MainWindow);
+        actionUkryj->setObjectName("actionUkryj");
+        actionKopiuj = new QAction(MainWindow);
+        actionKopiuj->setObjectName("actionKopiuj");
+        actionWklej = new QAction(MainWindow);
+        actionWklej->setObjectName("actionWklej");
+        actionWytnij = new QAction(MainWindow);
+        actionWytnij->setObjectName("actionWytnij");
+        actionK1 = new QAction(MainWindow);
+        actionK1->setObjectName("actionK1");
+        actionK2 = new QAction(MainWindow);
+        actionK2->setObjectName("actionK2");
+        actionKapi = new QAction(MainWindow);
+        actionKapi->setObjectName("actionKapi");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         liczbaA = new QLineEdit(centralwidget);
@@ -132,13 +167,13 @@ public:
         label->setGeometry(QRect(20, 110, 101, 19));
         NoteButton = new QPushButton(centralwidget);
         NoteButton->setObjectName("NoteButton");
-        NoteButton->setGeometry(QRect(130, 150, 61, 27));
+        NoteButton->setGeometry(QRect(140, 150, 51, 27));
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(210, 110, 71, 19));
         AddButton = new QPushButton(centralwidget);
         AddButton->setObjectName("AddButton");
-        AddButton->setGeometry(QRect(310, 150, 31, 27));
+        AddButton->setGeometry(QRect(320, 150, 31, 27));
         LiczbylineEdit = new QLineEdit(centralwidget);
         LiczbylineEdit->setObjectName("LiczbylineEdit");
         LiczbylineEdit->setGeometry(QRect(200, 130, 113, 27));
@@ -178,18 +213,52 @@ public:
         NoteClearButton = new QPushButton(centralwidget);
         NoteClearButton->setObjectName("NoteClearButton");
         NoteClearButton->setGeometry(QRect(60, 490, 80, 27));
+        label_6 = new QLabel(centralwidget);
+        label_6->setObjectName("label_6");
+        label_6->setGeometry(QRect(450, 350, 111, 19));
+        RedRadio = new QRadioButton(centralwidget);
+        RedRadio->setObjectName("RedRadio");
+        RedRadio->setGeometry(QRect(450, 380, 103, 25));
+        GreenRadio = new QRadioButton(centralwidget);
+        GreenRadio->setObjectName("GreenRadio");
+        GreenRadio->setGeometry(QRect(450, 420, 103, 25));
+        GreyRadio = new QRadioButton(centralwidget);
+        GreyRadio->setObjectName("GreyRadio");
+        GreyRadio->setGeometry(QRect(450, 460, 103, 25));
+        ClassicRadioButton = new QRadioButton(centralwidget);
+        ClassicRadioButton->setObjectName("ClassicRadioButton");
+        ClassicRadioButton->setGeometry(QRect(450, 490, 103, 25));
+        hamster = new QLabel(centralwidget);
+        hamster->setObjectName("hamster");
+        hamster->setGeometry(QRect(680, 310, 171, 171));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 974, 24));
         menuKalkulator = new QMenu(menubar);
         menuKalkulator->setObjectName("menuKalkulator");
+        menuNotes = new QMenu(menubar);
+        menuNotes->setObjectName("menuNotes");
+        menuKomunikat = new QMenu(menubar);
+        menuKomunikat->setObjectName("menuKomunikat");
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
 
         menubar->addAction(menuKalkulator->menuAction());
+        menubar->addAction(menuNotes->menuAction());
+        menubar->addAction(menuKomunikat->menuAction());
+        menuKalkulator->addAction(actionPoka);
+        menuKalkulator->addSeparator();
+        menuKalkulator->addSeparator();
+        menuKalkulator->addAction(actionUkryj);
+        menuNotes->addAction(actionKopiuj);
+        menuNotes->addAction(actionWklej);
+        menuNotes->addAction(actionWytnij);
+        menuKomunikat->addAction(actionK1);
+        menuKomunikat->addAction(actionK2);
+        menuKomunikat->addAction(actionKapi);
 
         retranslateUi(MainWindow);
 
@@ -199,6 +268,14 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        actionPoka->setText(QCoreApplication::translate("MainWindow", "Poka\305\274", nullptr));
+        actionUkryj->setText(QCoreApplication::translate("MainWindow", "Ukryj", nullptr));
+        actionKopiuj->setText(QCoreApplication::translate("MainWindow", "Kopiuj", nullptr));
+        actionWklej->setText(QCoreApplication::translate("MainWindow", "Wklej", nullptr));
+        actionWytnij->setText(QCoreApplication::translate("MainWindow", "Wytnij", nullptr));
+        actionK1->setText(QCoreApplication::translate("MainWindow", "K1", nullptr));
+        actionK2->setText(QCoreApplication::translate("MainWindow", "K2", nullptr));
+        actionKapi->setText(QCoreApplication::translate("MainWindow", "Kapi", nullptr));
         Dzialania->setItemText(0, QCoreApplication::translate("MainWindow", "+", nullptr));
         Dzialania->setItemText(1, QCoreApplication::translate("MainWindow", "-", nullptr));
         Dzialania->setItemText(2, QCoreApplication::translate("MainWindow", "*", nullptr));
@@ -224,7 +301,15 @@ public:
         NoteSaveButton->setText(QCoreApplication::translate("MainWindow", "Zapis", nullptr));
         NoteReadButton->setText(QCoreApplication::translate("MainWindow", "Odczyt", nullptr));
         NoteClearButton->setText(QCoreApplication::translate("MainWindow", "wyczy\305\233\304\207", nullptr));
+        label_6->setText(QCoreApplication::translate("MainWindow", "Kolor Formularza", nullptr));
+        RedRadio->setText(QCoreApplication::translate("MainWindow", "czerwony", nullptr));
+        GreenRadio->setText(QCoreApplication::translate("MainWindow", "zielony", nullptr));
+        GreyRadio->setText(QCoreApplication::translate("MainWindow", "szary", nullptr));
+        ClassicRadioButton->setText(QCoreApplication::translate("MainWindow", "KLASYCZNY", nullptr));
+        hamster->setText(QString());
         menuKalkulator->setTitle(QCoreApplication::translate("MainWindow", "Kalkulator", nullptr));
+        menuNotes->setTitle(QCoreApplication::translate("MainWindow", "Notes", nullptr));
+        menuKomunikat->setTitle(QCoreApplication::translate("MainWindow", "Komunikat", nullptr));
     } // retranslateUi
 
 };
